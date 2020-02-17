@@ -18,6 +18,11 @@ npm run test
 
 
 ```bash
-npm run start  
+npm run step1
+
+```
+
+```bash
+npm run step2  
 
 ```

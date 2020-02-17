@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "step1": "nodemon src/step1.js",
+    "step2": "nodemon src/step2.js",
     "test": "mocha"
   },
   "keywords": [],

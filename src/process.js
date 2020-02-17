@@ -7,9 +7,39 @@ const etiquetas = [
         {value : 7, string: 'Qix'}
     ]
 
-const pruebas = [1,2,3,4,5,6,7,8,9,10,13,15,21,33,51,53]
+const procesar2 = () => {
+    valores.unshift(0)
+    etiquetas.unshift({value:0, string: '*'})
+
+    const pruebas = [101,303,105,10101]
+
+    var salida = []
+    for (let entrada of pruebas) {
+        var object = {}
+        if ( getIsdivisible(entrada).length !==0  ){
+            object.esDivisible = getIsdivisible(entrada)
+        }
+
+        if ( getContains(entrada).length !==0 ){
+            object.contiene = getContains(entrada)
+        }
+
+        object.entrada = entrada
+
+        salida.push(object)
+    }
+
+    salida = getTags2(salida)
+
+    salida.forEach(arreglo => {
+        console.log(arreglo.entrada +' => ' + arreglo.cadena  )
+    })
+    return 1
+}
+
 
 const procesar = () => {
+    const pruebas = [1,2,3,4,5,6,7,8,9,10,13,15,21,33,51,53]
     var salida = []
     for (let entrada of pruebas) {
         var object = {}
@@ -70,6 +100,17 @@ const getTags = (entradaValores) => {
     }
     return salida;
 }
+const getTags2 = (entradaValores) => {
+    const salidaValores = getTags(entradaValores)
+    for (let valor of salidaValores) {
+        if (valor.cadena === '*') {
+            let entradaCadena = '' + valor.entrada;
+            valor.cadena = entradaCadena.replace(/0/g,"*");
+        }
+    }
+    return salidaValores
+}
+
 const occurrencesToString = (entrada, module) => {
 
     const numero = occurrences(entrada,module)
@@ -115,6 +156,8 @@ const getContains  = (entrada ) => {
 
     return salida
 }
+
+
 const getIsdivisible = (entrada) => {
     let salida = []
     let cadena = ''
@@ -134,6 +177,7 @@ const modulo = (entrada, module) => {
 
 module.exports = {
     procesar,
+    procesar2,
     getTags,
     occurrencesToString,
     occurrences,
