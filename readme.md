@@ -11,7 +11,7 @@ npm install
 
 
 ```bash
-mocha
+npm run test
 ```
 ## Run
 
