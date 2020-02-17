@@ -24,9 +24,4 @@ describe("Cadenas",function(){
         assert.equal("Two", proceso.occurrencesToString('33','3'));
     })
 });
-describe("Modulo",function(){
-    it('debe de dar verdaro',function(){
-        assert.equal(true, proceso.getTags(9,3));
-    })
-});
 
